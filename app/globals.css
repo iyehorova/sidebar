@@ -37,6 +37,9 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-offline: var(--offline);
+  --color-available: var(--available);
+  --color-unavailable: var(--unavailable);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -76,6 +79,10 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --offline: oklch(0.61 0.0048 17.29); 
+  --available:oklch(0.56 0.1597 144.67); 
+  --unavailable:oklch(0.646 0.222 41.116);
+
 }
 
 .dark {

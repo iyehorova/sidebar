@@ -5,6 +5,7 @@ import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { MenuItemT } from "@/types/common"
 
 function DropdownMenu({
   ...props
@@ -36,6 +37,7 @@ function DropdownMenuContent({
   sideOffset = 4,
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Content>) {
+  console.log("render dropdown content")
   return (
     <DropdownMenuPrimitive.Portal>
       <DropdownMenuPrimitive.Content
@@ -237,6 +239,30 @@ function DropdownMenuSubContent({
     />
   )
 }
+const DropdownMenuListGroup = ({ items, className }: { items: MenuItemT[], className?: string }) => {
+  if (!items.length) return null;
+  return (
+    <DropdownMenuGroup className={className}>
+      {items.map(({ name, Icon}) => ( 
+        <DropdownMenuItem key={name}>
+          {Icon && <Icon />}
+          { name}
+        </DropdownMenuItem>
+      ))}
+    </DropdownMenuGroup>
+  )
+}
+
+const DropdownMenuItemGroup = ({ className, children }: React.PropsWithChildren<{className?: string}>) => {
+
+  return (
+    <DropdownMenuGroup className={className}>
+        <DropdownMenuItem >
+          {children}
+        </DropdownMenuItem>
+    </DropdownMenuGroup>
+  )
+}
 
 export {
   DropdownMenu,
@@ -254,4 +280,6 @@ export {
   DropdownMenuSub,
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
+  DropdownMenuListGroup,
+  DropdownMenuItemGroup
 }
